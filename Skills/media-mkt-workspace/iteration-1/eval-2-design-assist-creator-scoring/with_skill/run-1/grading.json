@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "明确指出不能只看粉丝数",
+      "passed": true,
+      "evidence": "'别把粉丝数当主分'单列一节，解释僵尸粉"
+    },
+    {
+      "text": "包含互动率/真实度维度（识别水军/真实活跃）",
+      "passed": true,
+      "evidence": "维度②真实互动质量+互动率反向识别僵尸粉"
+    },
+    {
+      "text": "包含垂类匹配度/内容主题相关性",
+      "passed": true,
+      "evidence": "维度①垂类匹配度列权重最高，含行业钩子占比"
+    },
+    {
+      "text": "包含舆情/翻车/品牌安全风险",
+      "passed": true,
+      "evidence": "维度⑤舆情/翻车风险做一票否决"
+    },
+    {
+      "text": "区分 KOL 与 KOC 及不同合作策略",
+      "passed": true,
+      "evidence": "KOL/KOC对比表+按合作目的切换权重"
+    },
+    {
+      "text": "提到平台差异",
+      "passed": true,
+      "evidence": "维度④平台适配度+同平台归一化的技术提醒"
+    },
+    {
+      "text": "解释每个维度为什么重要，非罗列名词",
+      "passed": true,
+      "evidence": "每维度都有why+量化方法"
+    },
+    {
+      "text": "给出可落地评分设计（权重/分层/组合）",
+      "passed": true,
+      "evidence": "闸门×加权综合分公式+三种目的权重+分档+落地顺序"
+    },
+    {
+      "text": "语言通俗照顾非营销背景",
+      "passed": true,
+      "evidence": "'纠正外行直觉'口吻、术语解释"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  }
+}

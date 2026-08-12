@@ -1,0 +1,202 @@
+---
+description: Common test strategy baseline, quality checklist, and rules for project-specific strategies
+alwaysApply: true
+---
+
+# Rule - Common Test Strategy
+
+## Purpose
+
+This is the **single baseline** test strategy for all projects. It defines the minimum pyramid, practices, and quality bar.
+
+Do **not** duplicate this content in a separate always-on rule (e.g. legacy `test-strategy.mdc`). One baseline avoids conflicting instructions.
+
+Project-specific test strategies (e.g. `specs/test-strategy.md`) may **extend** this baseline with domain fixtures, tools, latency budgets, and journeys. They must **not** weaken it.
+
+## Precedence & compliance
+
+1. **Always apply** this common strategy.
+2. If a project defines its own test strategy or quality standards, **also** apply that document in full.
+3. Project-specific rules must **comply with** this common strategy:
+   - They may add stricter coverage, extra environments, or more journeys
+   - They must not remove pyramid layers, skip required gates, or lower the quality checklist below
+4. If the project has **no** test strategy, use this document alone (including the quality checklist).
+5. Conflicts: choose the **stricter** interpretation; ask the user if still ambiguous.
+
+When creating or editing a project test strategy, state explicitly that it extends `common-test-strategy` and list any stricter deltas.
+
+## Test pyramid
+
+Target mix (adjust only with user approval):
+
+| Layer | Share | Role |
+| --- | --- | --- |
+| Unit / component | ~70% | Fast, isolated, many cases |
+| Integration / contract | ~20% | Module boundaries, APIs, DB, auth |
+| E2E (real browser) | ~10% | Few critical user journeys |
+
+Prefer many cheap unit tests over duplicating the same path only in E2E.
+
+## Unit & component tests
+
+### Scope
+
+- Business logic and non-trivial helpers must have unit tests
+- Critical paths: **100%** coverage of the changed critical path
+- Overall coverage target: **≥ 80%** where the stack supports measurement (or project-stricter)
+
+### Principles
+
+- One behavior per test
+- Name: `should_[expected]_when_[condition]` (or equivalent clarity)
+- AAA: Arrange → Act → Assert
+- Independent, order-independent, deterministic
+
+### Mocks
+
+**Prefer real / test doubles that preserve behavior:**
+
+- Test DB or isolated data dir over silent no-op mocks for persistence
+- Test/fixture APIs over inventing success payloads in production code paths
+
+**Mock when necessary:**
+
+- Paid / irreversible third parties (payments, SMS) unless an approved sandbox exists
+- Time (`Date.now`), randomness
+- Filesystem only when isolation requires it
+
+Do not ship features that only work against mocks unless the user explicitly allows it.
+
+## Integration / contract tests
+
+- Cover API request/response contracts, CRUD, authn/authz, frontend–backend wiring
+- Use isolated test data; clean up or reset between tests
+- Include error and partial-failure paths
+- Default CI: fixtures / sandboxes; live keys only in opt-in jobs
+
+## E2E & web app testing
+
+- Run in a real browser (Playwright or equivalent)
+- Cover critical journeys: auth, core happy path, at least one failure path
+- Drive UI like a user; assert on visible outcomes
+- Wait for rendered state (`networkidle` or an explicit selector) before inspect/assert
+- Prefer stable selectors: `role`, accessible name / `text`, test id — not layout-brittle CSS
+- Avoid hardcoded sleeps unless unavoidable
+- Static HTML: `file://` is fine; dynamic apps: start the real server (e.g. `with_server` / `npm run dev`) then automate
+
+## Test data
+
+- Separate test DB / temp data dir; never use production data
+- Per-test isolation via fixtures, factories, transactions, or reset
+- Clean up after runs to avoid pollution
+
+## TDD workflow
+
+1. **Red** — write a failing test that states the behavior  
+2. **Green** — minimal code to pass  
+3. **Refactor** — clean up while green  
+
+Commit when green when the project workflow expects it. Do not expand scope mid-cycle without capturing a new story.
+
+## CI
+
+- Tests run on every push / PR
+- Failures block merge
+- Publish coverage (or equivalent) when available
+- Default pipeline stays fixture-only / non-destructive
+
+## When tests may be skipped
+
+**Never skip for:**
+
+- Business logic, API endpoints, data transforms, authn/authz
+
+**May skip (document why):**
+
+- Pure presentational components with no logic
+- Config-only and type-only files
+
+## Failure handling
+
+- Prefer fixing production code over weakening the test
+- Fix a wrong test; never delete or comment out a failing test to “go green”
+- Never lower the quality bar to pass CI
+
+Debug: read failure → clarify expected behavior → check implementation → fix → re-run full relevant suite.
+
+## Quality standard checklist
+
+Meet **all applicable** items before marking work done (DoD “Quality met”). Project strategies may add items; they may not drop these without user approval.
+
+### Functional
+
+- [ ] Core user path works end-to-end in a real browser (not only unit tests)
+- [ ] Happy path and at least one failure / empty / loading state are verified
+- [ ] Form validation and error messages are correct and visible (where UI exists)
+- [ ] Auth-gated routes/APIs reject unauthenticated or unauthorized access correctly
+
+### Automation & E2E
+
+- [ ] Wait for rendered state before assert/interact
+- [ ] Selectors are stable (`role` / `text` / test id)
+- [ ] Critical journey covered by E2E automation or an evidenced manual browser script
+- [ ] No unnecessary hardcoded timing sleeps
+
+### UX & accessibility (UI work)
+
+- [ ] Desktop and mobile viewports checked for changed screens
+- [ ] Keyboard: focus order, Escape closes dialogs, primary actions reachable
+- [ ] Status/meaning is not color-only
+- [ ] No layout overflow / clipped controls on target breakpoints
+
+### Data & honesty
+
+- [ ] UI/API expose real or approved fixture data — no fabricated domain facts
+- [ ] Loading / partial-failure states do not blank the whole experience
+- [ ] Secrets never appear in client storage, responses meant for the browser, or logs
+
+### Performance
+
+- [ ] Primary flows feel responsive (no multi-second freezes on common actions)
+- [ ] Load/navigation within agreed budget or no clear regression vs baseline
+- [ ] Large lists use pagination, virtualization, or equivalent
+- [ ] Expensive calls are not duplicated on remount/re-render without need
+- [ ] Loading indicators for slow async work; UI remains usable
+
+### Security
+
+- [ ] Authorization enforced on server/BFF; UI hiding is not the control
+- [ ] No secrets in client code, `localStorage`, client-exposed cookies, or logs
+- [ ] Input and URL params validated/sanitized; no XSS via rendered HTML
+- [ ] Mutations use CSRF-safe patterns where applicable
+- [ ] Errors do not leak stacks, tokens, or internals
+- [ ] Provider failures degrade safely without exposing credentials
+
+### Regression gate
+
+- [ ] Related unit / integration / E2E tests pass in CI (fixture-only by default)
+- [ ] No unexpected console/server errors on the verified path
+- [ ] Coverage/quality targets met for the change (critical path 100%; overall ≥ 80% or project-stricter)
+- [ ] Screenshots or short notes attached when AC requires visual proof
+
+## How to apply
+
+**Before coding**
+
+- Write or update tests that define expected behavior
+- Check for a project `test-strategy` and apply both that and this baseline
+
+**During development**
+
+- Stay in Red–Green–Refactor; keep the suite green
+- Prefer real integrations over mocks unless allowed
+
+**When adding a project strategy**
+
+- Start from this baseline; document extensions only
+- Keep or raise the quality checklist; never silently drop items
+
+**At review / DoD**
+
+- Verify pyramid coverage for the change
+- Complete the quality checklist (plus any project-specific extras)

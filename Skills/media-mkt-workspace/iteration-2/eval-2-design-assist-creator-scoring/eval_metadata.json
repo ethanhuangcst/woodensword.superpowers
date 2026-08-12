@@ -1,0 +1,16 @@
+{
+  "eval_id": 2,
+  "eval_name": "design-assist-creator-scoring",
+  "prompt": "我在给我的自媒体营销智能体做「账号洞察」功能，想加一个『这个创作者值不值得合作』的评分。我没有营销背景，你觉得应该看哪些维度、怎么设计这个评分？",
+  "assertions": [
+    {"text": "明确指出不能只看粉丝数", "type": "manual"},
+    {"text": "包含互动率/真实度维度（判断是否有水军、粉丝是否真实活跃）", "type": "manual"},
+    {"text": "包含垂类匹配度/内容主题相关性维度", "type": "manual"},
+    {"text": "包含舆情/翻车/品牌安全风险维度", "type": "manual"},
+    {"text": "区分 KOL 与 KOC 及其不同的合作定位/策略", "type": "manual"},
+    {"text": "提到平台差异（如同一创作者在抖音vs小红书表现/适配不同）", "type": "manual"},
+    {"text": "解释每个维度为什么重要，而不是罗列名词", "type": "manual"},
+    {"text": "给出可落地的评分设计建议（如维度权重、分层、如何组合），而不只是清单", "type": "manual"},
+    {"text": "语言通俗，照顾用户没有营销背景", "type": "manual"}
+  ]
+}

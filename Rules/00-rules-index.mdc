@@ -1,0 +1,31 @@
+---
+description: Map of personal Cursor rules in this catalog and how they relate
+alwaysApply: true
+---
+
+# Rule catalog
+
+This folder is the **editable catalog** for your personal always-on rules. After changes here, sync to `~/.cursor/rules/` (see `source-of-truth.mdc`).
+
+| Rule file | Role |
+| --- | --- |
+| `source-of-truth.mdc` | Where rules and skills live; sync workflow |
+| `persistent-proactive-developer.mdc` | Finish work, no mocks, real integrations, proactive next steps |
+| `incremental-delivery.mdc` | One user story at a time until DoD |
+| `dod.mdc` | Completion checklist before marking done |
+| `common-test-strategy.mdc` | Test pyramid, TDD, quality checklist (baseline for DoD “Quality met”) |
+| `makefile.mdc` | `dev` / `up` / `down` on new projects |
+| `i18n-support.mdc` | Key-based copy across req → design → impl → test |
+| `writing-style.mdc` | Tone, structure, and language for replies and docs |
+
+## Precedence
+
+1. **Stricter wins** when two rules overlap (e.g. DoD vs common test strategy).
+2. **DoD** is the gate for “done”; it references **common-test-strategy** for quality, **incremental-delivery** for scope, and **retrospective** (skill) for persistence.
+3. **Do not** maintain a separate `test-strategy.mdc` — it duplicates **common-test-strategy** and causes conflicting guidance.
+
+## Skills often used with these rules
+
+- `retrospective` — DoD retrospective section
+- `new-requirement` — scope discovered mid-story (`incremental-delivery`, `persistent-proactive-developer`)
+- `tdd` / project test strategy — extends **common-test-strategy**, never weakens it

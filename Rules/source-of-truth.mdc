@@ -1,0 +1,25 @@
+---
+description: Canonical locations for rules and skills; sync IDE/Rules to ~/.cursor
+alwaysApply: true
+---
+
+# User-level source of truth: `~/.cursor`
+
+## Canonical locations
+
+- **Rules (runtime)**: `~/.cursor/rules/` (`.mdc` files Cursor loads)
+- **Skills**: `~/.cursor/skills/*/SKILL.md`
+- **Built-in Cursor skills**: `~/.cursor/skills-cursor/` (do not modify)
+- **Legacy**: Do **not** treat `~/.claude/Rules` or `~/.claude/skills*` as canonical. Edit under `~/.cursor/`.
+- **Claude Code parity**: `ln -s ~/.cursor/skills ~/.claude/skills` if both tools should share skills.
+
+## This repo: `IDE/Rules/`
+
+- Treat **`IDE/Rules/`** as the versioned, review-friendly **catalog** for your personal rules.
+- After editing here, **sync to `~/.cursor/rules/`** so agents pick up changes (copy or rsync; keep filenames aligned).
+- Remove retired duplicates in `~/.cursor/rules/` when the catalog consolidates them (e.g. drop standalone `test-strategy.mdc` if **common-test-strategy** is the single baseline; drop thin duplicate “persistent developer” rules if **persistent-proactive-developer** is canonical).
+
+## Creating new rules or skills
+
+- New **rules**: add `.mdc` under `IDE/Rules/`, update `00-rules-index.mdc`, sync to `~/.cursor/rules/`.
+- New **skills**: create under `~/.cursor/skills/<name>/SKILL.md` (and mirror under `IDE/Skills/` if you keep a workspace copy).

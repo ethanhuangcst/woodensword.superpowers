@@ -1,0 +1,73 @@
+---
+description: Definition of Done checklist before marking work complete
+alwaysApply: true
+---
+
+# Rule - Definition of Done (DoD)
+
+## Completion checklist
+
+A user story or feature must meet **all** applicable items below before it may be marked done. Scope: one story at a time (`incremental-delivery`). Quality bar: `common-test-strategy` (referenced under **Quality met**).
+
+## Code & toolchain
+
+- [ ] Unit and integration tests for the changed behavior pass locally
+- [ ] Lint / formatter clean on touched files (when the project defines them)
+- [ ] Typecheck passes (when the project uses static types)
+- [ ] No new critical static-analysis or security findings introduced by the change (when tooling exists)
+
+## Feature usable
+
+- [ ] All acceptance criteria (AC) are implemented (where applicable)
+- [ ] Frontend and backend APIs are integrated and verified end-to-end
+- [ ] Error handling is implemented
+- [ ] Edge cases are handled
+- [ ] All interfaces use real, working integrations — no mock data unless the user explicitly allows it
+- [ ] Pause and ask the user: “Do you confirm this feature is usable?” Continue only after explicit approval
+
+## Quality met
+
+- [ ] Meet **100%** of the applicable items in the **Common Test Strategy** quality checklist (`common-test-strategy`)
+- [ ] If the project defines its own test strategy / quality standards, also meet **100%** of those — they must **comply with and not weaken** the common strategy
+- [ ] Prefer the stricter bar when both apply
+
+## Version control (when the workflow expects it)
+
+- [ ] Changes committed with a clear message **only when the user requested a commit or project DoD requires it** (do not commit unprompted)
+- [ ] No secrets, credentials, or stray temp files in the commit
+- [ ] Branch pushed to remote when the team’s DoD or release process requires it
+
+## Docs in sync
+
+- [ ] Requirements spec updated (if changed)
+- [ ] Design spec updated (if changed)
+- [ ] UI spec updated (if changed)
+- [ ] API docs updated (where applicable)
+- [ ] README updated (where applicable)
+
+## Retrospective
+
+Run the `retrospective` skill before marking the work done (after the items above are satisfied, or as the final DoD gate).
+
+- [ ] Retrospective completed for this feature / task
+- [ ] ADR-worthy decisions persisted under `specs/adr/` — or explicitly recorded that none were ADR-worthy
+- [ ] Knowledge-worthy lessons persisted under `specs/knowledge/` — or explicitly recorded that none were knowledge-worthy
+- [ ] Retrospective Summary presented (ADRs created, knowledge added/updated, items skipped)
+
+An empty retrospective is valid when nothing is durable enough to persist — still run the skill and state that clearly. Do not skip the gate.
+
+## How to use this rule
+
+**During development**
+
+- Treat this checklist as the working guide; do not skip sections
+
+**When claiming done**
+
+- Check every applicable item; mark complete only when all pass
+- If any item fails, keep working until it passes
+
+**At acceptance**
+
+- User and developer confirm the checklist together
+- Record acceptance time and accepter when the project requires it

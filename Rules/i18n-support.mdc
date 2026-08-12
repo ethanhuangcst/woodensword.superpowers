@@ -1,0 +1,69 @@
+---
+description: i18n required across requirement, design, implementation, and testing; never hard-code UI text
+alwaysApply: true
+---
+
+# Rule - i18n Support
+
+## Non-negotiable
+
+For any user-facing text (UI labels, buttons, empty states, errors, emails, notifications, a11y strings):
+
+- **Never hard-code** copy in source, specs-as-implementation, or tests that assert English-only literals as the product contract
+- **Always** add internationalization (i18n) support using the project’s locale system
+- Default locale and at least one additional locale path must be considered unless the user explicitly scopes to a single language
+
+Applies across **requirement → design → implementation → testing**. Skipping i18n in any phase is incomplete work.
+
+## Requirements
+
+When writing or updating requirements / AC / user stories that involve UI or user-visible messages:
+
+- [ ] State that all user-facing strings are i18n keys (not hard-coded language)
+- [ ] Name supported locales (or point to the project locale list)
+- [ ] Call out locale-sensitive behavior: dates, times, numbers, currency, plurals, RTL if relevant
+- [ ] Include AC for missing-translation fallback and for switching locale (if the product supports it)
+- [ ] Do not write AC that lock copy to one language unless the user explicitly requests a single-locale MVP — and even then, still require key-based strings so locales can be added later
+
+## Design
+
+When writing UI / UX / API design specs:
+
+- [ ] Specs refer to **string keys** (or message ids) plus English source copy as reference, not as the only representation
+- [ ] Layout accounts for text expansion/contraction (typically ~30% longer/shorter than English)
+- [ ] Avoid designs that embed text in images/icons when real copy is required
+- [ ] Document directionality (LTR/RTL) constraints if any locale needs them
+- [ ] Error, empty, loading, and validation messages are listed as translatable catalog entries
+
+## Implementation
+
+- [ ] All user-facing strings go through the project i18n API (`t()`, message catalogs, etc.)
+- [ ] No raw string literals in components/templates for labels, buttons, titles, helpers, errors, toasts, aria-labels
+- [ ] Add/update locale files for every new key; keep key names stable and descriptive
+- [ ] Format dates, times, numbers, and currency with locale-aware formatters
+- [ ] Handle plurals and interpolation via the i18n library — do not concatenate sentences in code
+- [ ] Server/BFF user-visible errors return codes or message keys when the client localizes; do not assume one language in API error bodies meant for display
+- [ ] Prefer the project’s existing i18n stack; do not invent a parallel hard-coded English layer
+
+**Allowed hard-coded exceptions** (keep minimal, document if unclear):
+
+- Protocol identifiers, enum codes, log messages for operators, and developer-only debug UI explicitly marked non-product
+
+## Testing
+
+- [ ] Unit/component tests assert on **keys**, roles, or stable test ids — not on a single language’s copy — unless testing the locale catalog itself
+- [ ] At least one test path verifies strings resolve through i18n (default locale)
+- [ ] When multiple locales are in scope, smoke-check that a second locale loads without missing-key crashes
+- [ ] E2E may use visible text only if the test sets an explicit locale and uses that locale’s catalog; prefer role/`data-testid` selectors
+- [ ] Snapshot tests must not freeze one language as the sole source of truth without locale context
+
+## DoD gate (UI work)
+
+Before marking UI work done:
+
+- [ ] No hard-coded user-facing copy introduced
+- [ ] New keys present in the required locale files
+- [ ] Requirements/design/tests updated to match key-based copy
+- [ ] Locale-sensitive formatting verified for the touched flows
+
+If the project has no i18n setup yet, **add the minimal i18n foundation** as part of the first UI story — do not ship hard-coded text “until later” unless the user explicitly allows it.

@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "明确指出不能只看粉丝数",
+      "passed": true,
+      "evidence": "'粉丝量是虚荣指标，互动才反映真实影响力'"
+    },
+    {
+      "text": "包含互动率/真实度维度（识别水军/真实活跃）",
+      "passed": true,
+      "evidence": "维度2受众真实性做一票否决乘数+维度3互动质量"
+    },
+    {
+      "text": "包含垂类匹配度/内容主题相关性",
+      "passed": true,
+      "evidence": "维度1受众匹配度列最重要"
+    },
+    {
+      "text": "包含舆情/翻车/品牌安全风险",
+      "passed": true,
+      "evidence": "维度7品牌安全与风险做扣分/否决"
+    },
+    {
+      "text": "区分 KOL 与 KOC 及不同合作策略",
+      "passed": false,
+      "evidence": "通篇未明确引入KOL/KOC概念与其不同合作定位；仅隐含提到'腰部/素人KOC'一词，未展开区分策略"
+    },
+    {
+      "text": "提到平台差异",
+      "passed": true,
+      "evidence": "互动率必须按平台分档对比；同平台基准线"
+    },
+    {
+      "text": "解释每个维度为什么重要，非罗列名词",
+      "passed": true,
+      "evidence": "每维度含为什么"
+    },
+    {
+      "text": "给出可落地评分设计（权重/分层/组合）",
+      "passed": true,
+      "evidence": "加权分×惩罚乘数公式+权重档案表+S/A/B/C分档"
+    },
+    {
+      "text": "语言通俗照顾非营销背景",
+      "passed": true,
+      "evidence": "心智模型引入、术语解释；但夹带i18n提醒略偏题"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 1,
+    "total": 9,
+    "pass_rate": 0.8889
+  }
+}

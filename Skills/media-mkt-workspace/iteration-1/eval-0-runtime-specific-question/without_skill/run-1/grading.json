@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "识别出具体的购买犹豫点（糖分/竞品选择/智商税）",
+      "passed": true,
+      "evidence": "4卡点：糖分/功能定位/买不到/口味踩雷"
+    },
+    {
+      "text": "从评论文本提炼犹豫点并引用具体内容id或评论作证据",
+      "passed": true,
+      "evidence": "引用 dy_002/xhs_002/zh_001 评论+ID"
+    },
+    {
+      "text": "读了互动结构而非只报总量",
+      "passed": true,
+      "evidence": "用收藏率、评论率、分享率判断，非只看点赞"
+    },
+    {
+      "text": "挑出值得抄的内容并说清为什么（打法层面）",
+      "passed": true,
+      "evidence": "必抄3条+可借鉴+抄法"
+    },
+    {
+      "text": "没有跨平台直接比较绝对数字",
+      "passed": false,
+      "evidence": "称 dy_001 播放125万为'全样本最高'，跨抖音/B站比较绝对播放量；且开头写'横向比较以点赞/收藏为准'倾向绝对值"
+    },
+    {
+      "text": "结论落到可执行动作",
+      "passed": true,
+      "evidence": "三段式打法组合+重新定位+补漏斗"
+    },
+    {
+      "text": "语言通俗照顾非营销背景",
+      "passed": true,
+      "evidence": "术语有解释、口语化"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.8571
+  }
+}

@@ -1,0 +1,80 @@
+---
+description: Always create a Makefile with dev/up/down when starting a new project
+alwaysApply: true
+---
+
+# Rule - Makefile for New Projects
+
+## Non-negotiable
+
+Whenever a **new project** is created or scaffolded in the IDE (empty repo, `create-*`, first commit layout, or first implementation story in a greenfield folder):
+
+1. **Immediately** create a root `Makefile` (do not wait for the user to ask)
+2. The Makefile **must** expose at least these targets: `dev`, `up`, `down`
+3. Wire the targets to the project’s real run/stop commands; do not leave them as no-ops if the stack is already known
+4. If a `Makefile` already exists, keep `dev` / `up` / `down` and extend rather than remove them
+
+This applies at project creation and whenever you bootstrap a new app in a previously empty workspace.
+
+## Required targets
+
+| Target | Purpose |
+| --- | --- |
+| `make dev` | Start local development (hot reload / watch). Foreground OK. |
+| `make up` | Start the full local stack in the background (app + deps). Idempotent if already up. |
+| `make down` | Stop everything started by `up` / local stack. Safe if already stopped. |
+
+Optional but recommended once the stack exists: `install`, `test`, `lint`, `help` (default goal). Wire `test` / `lint` to the project’s real commands so DoD and **common-test-strategy** gates are one command away.
+
+## Conventions
+
+- Use `.PHONY` for non-file targets
+- Default goal: `help` or `dev`
+- Detect the stack from project files (`package.json`, `docker-compose.yml`, `pyproject.toml`, etc.) and bind commands accordingly
+- Prefer project-native commands (`npm run dev`, `docker compose up`, etc.)
+- Document usage in a short `help` target
+- Do not require Docker if the project does not use it; `up`/`down` may wrap the same process model (e.g. start/stop via PID file or compose)
+
+## Minimal template (adapt commands)
+
+Use this shape when scaffolding; replace the recipe bodies to match the stack:
+
+```makefile
+.PHONY: help dev up down
+
+.DEFAULT_GOAL := help
+
+help: ## Show available targets
+	@grep -E '^[a-zA-Z_-]+:.*?##' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-12s %s\n", $$1, $$2}'
+
+dev: ## Start development server (foreground)
+	npm run dev
+
+up: ## Start local stack (background)
+	npm run dev &
+
+down: ## Stop local stack
+	-pkill -f "next dev" || true
+```
+
+For Docker-based projects:
+
+```makefile
+dev: ## App dev server (foreground)
+	npm run dev
+
+up: ## Start dependencies / full stack
+	docker compose up -d
+
+down: ## Stop dependencies / full stack
+	docker compose down
+```
+
+## Checklist (new project)
+
+- [ ] Root `Makefile` exists
+- [ ] `make dev` starts local development
+- [ ] `make up` brings the stack up
+- [ ] `make down` tears the stack down
+- [ ] `make help` lists targets (recommended)
+- [ ] Recipes match the actual package manager / compose setup

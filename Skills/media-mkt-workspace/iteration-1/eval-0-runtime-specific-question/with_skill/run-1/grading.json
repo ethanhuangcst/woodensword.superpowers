@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "识别出具体的购买犹豫点（糖分/竞品选择/智商税）",
+      "passed": true,
+      "evidence": "三坎：糖分=健康顾虑、定位说不清被专业降级、想买买不到怕踩雷"
+    },
+    {
+      "text": "从评论文本提炼犹豫点并引用具体内容id或评论作证据",
+      "passed": true,
+      "evidence": "大量引用 dy_002/xhs_002/zh_001 评论原话+ID"
+    },
+    {
+      "text": "读了互动结构而非只报总量",
+      "passed": true,
+      "evidence": "dy_001 赞3.8万≫评186=安静强认可；dy_002 评论盖过认可=争议型；xhs_001 藏/赞≈0.74"
+    },
+    {
+      "text": "挑出值得抄的内容并说清为什么（打法层面）",
+      "passed": true,
+      "evidence": "Top3+抄法（场景系列/共创横评设占优维度/KOC矩阵）"
+    },
+    {
+      "text": "没有跨平台直接比较绝对数字",
+      "passed": true,
+      "evidence": "开头明确只比结构和份额；效率仅在同平台内比较"
+    },
+    {
+      "text": "结论落到可执行动作",
+      "passed": true,
+      "evidence": "结尾5件事按优先级"
+    },
+    {
+      "text": "语言通俗照顾非营销背景",
+      "passed": true,
+      "evidence": "口语化、每个术语都解释"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

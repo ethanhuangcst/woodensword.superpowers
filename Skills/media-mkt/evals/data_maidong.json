@@ -1,0 +1,47 @@
+{
+  "keyword": "脉动",
+  "collected_at": "2026-07-13",
+  "note": "同一关键词多平台搜索结果 + 每条内容的评论样本。play_count 为 null 表示该平台接口无播放量字段。",
+  "items": [
+    {
+      "id": "dy_001", "platform": "douyin", "title": "夜班冰柜挑战｜一口脉动瞬间回血",
+      "creator_name": "深夜便利店阿康", "play_count": 1250000, "likes": 38000, "collects": 2100, "comments": 186, "shares": 890,
+      "comments_sample": ["这个点看饿了又渴了", "我上夜班也是靠这个续命", "冰镇的才好喝", "感觉像广告但确实想喝了", "在哪个便利店有卖"]
+    },
+    {
+      "id": "dy_002", "platform": "douyin", "title": "运动完到底该喝脉动还是电解质水？教练告诉你",
+      "creator_name": "健身科普李教练", "play_count": 880000, "likes": 21000, "collects": 5400, "comments": 1340, "shares": 620,
+      "comments_sample": ["所以到底喝哪个啊没说清楚", "脉动糖分太高了吧", "求出一期成分对比", "健身房教练都推电解质水", "脉动更多是心理安慰", "大汗淋漓后喝这个真的解渴"]
+    },
+    {
+      "id": "dy_003", "platform": "douyin", "title": "脉动整箱批发价来了 全网最低",
+      "creator_name": "饮料批发老王", "play_count": 45000, "likes": 120, "collects": 30, "comments": 8, "shares": 3,
+      "comments_sample": ["多少钱一箱", "能发货到南方吗"]
+    },
+    {
+      "id": "xhs_001", "platform": "xiaohongshu", "title": "便利店宝藏饮料测评！脉动新口味青柠真的绝了",
+      "creator_name": "吃货小RED", "play_count": null, "likes": 12000, "collects": 8900, "comments": 340, "shares": 210,
+      "comments_sample": ["青柠味在哪买啊搜不到", "已经囤了一箱", "水蜜桃味更好喝", "收藏了周末去买", "会不会很甜", "减脂期能喝吗"]
+    },
+    {
+      "id": "xhs_002", "platform": "xiaohongshu", "title": "脉动 vs 宝矿力 vs 外星人 运动饮料谁更值得买",
+      "creator_name": "成分党Anna", "play_count": null, "likes": 9200, "collects": 11000, "comments": 890, "shares": 450,
+      "comments_sample": ["脉动糖太多了不推荐", "看成分还是外星人0糖好", "但脉动便宜大碗啊", "求问糖尿病人能喝哪个", "这篇好客观已关注", "宝矿力太咸了喝不惯", "所以运动完到底喝啥"]
+    },
+    {
+      "id": "xhs_003", "platform": "xiaohongshu", "title": "踩雷预警！脉动这个新口味我劝你别买",
+      "creator_name": "老实测评菌", "play_count": null, "likes": 3400, "collects": 1200, "comments": 2100, "shares": 680,
+      "comments_sample": ["确实难喝踩雷了", "萝卜青菜各有所爱我觉得还行", "楼主是不是恰饭黑竞品", "谢谢提醒不买了", "有没有可能是你买到假的", "这口味我也觉得怪", "退钱！"]
+    },
+    {
+      "id": "bili_001", "platform": "bilibili", "title": "【硬核测评】市面9款维生素饮料实验室数据大横评 脉动排第几",
+      "creator_name": "老师好我叫何同学的表弟", "play_count": 320000, "likes": 28000, "collects": 19000, "comments": 3400, "shares": 2100,
+      "comments_sample": ["这才是真测评up主用心了", "脉动性价比其实不错", "求把表格发出来", "维生素含量还没现榨橙汁高", "一键三连了", "建议加上农夫山泉维他命水"]
+    },
+    {
+      "id": "zh_001", "platform": "zhihu", "title": "脉动和佳得乐哪个更适合运动后补充？",
+      "creator_name": "运动营养师赵博士", "play_count": null, "likes": 420, "collects": 380, "comments": 89, "shares": 45,
+      "comments_sample": ["专业答主已赞同", "所以普通人跑步喝白水就够了对吧", "佳得乐钠含量更适合大量出汗", "脉动更适合日常补水不是专业运动"]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "keyword": "启赋奶粉",
+  "collected_at": "2026-07-13",
+  "note": "奶粉品牌多平台搜索结果 + 评论样本。行业：快消/奶粉。play_count 为 null 表示接口无播放量。",
+  "items": [
+    {
+      "id": "xhs_101", "platform": "xiaohongshu", "title": "启赋蓝钻转奶全记录｜从美素佳儿转过来宝宝适应吗",
+      "creator_name": "二胎妈妈笔记", "play_count": null, "likes": 8600, "collects": 12400, "comments": 1560, "shares": 320,
+      "comments_sample": ["转奶会不会拉肚子啊", "我家转的时候便秘了", "求详细转奶比例", "启赋是不是有点贵", "收藏了准备转", "有没有转奶不适应的", "母乳不够正在纠结转哪个"]
+    },
+    {
+      "id": "xhs_102", "platform": "xiaohongshu", "title": "启赋国行vs德爱怎么分？教你辨别正品避免买到假货",
+      "creator_name": "海淘避坑指南", "play_count": null, "likes": 11200, "collects": 15800, "comments": 2340, "shares": 1200,
+      "comments_sample": ["扫码查不到是假的吗", "德爱版本靠谱吗", "代购的能信吗", "已经中招买到假的了", "国行贵但放心", "怎么查批次真伪", "求正品渠道链接"]
+    },
+    {
+      "id": "xhs_103", "platform": "xiaohongshu", "title": "启赋真心用不下去了 说说我的真实感受",
+      "creator_name": "诚实测评妈妈", "play_count": null, "likes": 4200, "collects": 2100, "comments": 3200, "shares": 890,
+      "comments_sample": ["我家也上火了", "是不是冲调方法不对", "这个价位不如换XX", "宝宝喝了确实便秘", "楼主别黑我家喝得很好", "每个宝宝体质不一样", "客服态度也差"]
+    },
+    {
+      "id": "dy_101", "platform": "douyin", "title": "月薪五千该不该给孩子买启赋这种高端奶粉",
+      "creator_name": "接地气育儿", "play_count": 1580000, "likes": 42000, "collects": 3800, "comments": 5600, "shares": 2300,
+      "comments_sample": ["量力而行别硬撑", "母乳最好又免费", "买贵的图个安心", "智商税吧成分差不多", "国产也很好啊", "确实压力大", "为了孩子值得"]
+    },
+    {
+      "id": "dy_102", "platform": "douyin", "title": "启赋新国标版本开箱 营养成分表解读",
+      "creator_name": "奶粉测评师大楠", "play_count": 620000, "likes": 15000, "collects": 8200, "comments": 980, "shares": 560,
+      "comments_sample": ["讲得好专业", "OPO和乳铁蛋白含量怎么样", "求对比合生元", "新国标是不是更安全了", "收藏慢慢看"]
+    },
+    {
+      "id": "zh_101", "platform": "zhihu", "title": "启赋奶粉值得买吗？有没有性价比更高的平替？",
+      "creator_name": "儿科医生说", "play_count": null, "likes": 890, "collects": 720, "comments": 156, "shares": 88,
+      "comments_sample": ["医生答主客观赞了", "适合过敏宝宝吗", "平替求推荐", "奶粉差异没广告说的大", "关键看宝宝适不适应"]
+    },
+    {
+      "id": "bili_101", "platform": "bilibili", "title": "【深度】五大高端奶粉横评 启赋惠氏合生元谁更值",
+      "creator_name": "硬核奶爸研究所", "play_count": 180000, "likes": 12000, "collects": 14000, "comments": 1800, "shares": 960,
+      "comments_sample": ["数据党狂喜", "up能不能测下国产的", "启赋这价格劝退", "三连支持", "希望加上过敏配方对比"]
+    }
+  ]
+}

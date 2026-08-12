@@ -1,0 +1,60 @@
+{
+  "expectations": [
+    {
+      "text": "识别出奶粉行业特有的转奶焦虑",
+      "passed": true,
+      "evidence": "卡点1转奶适应性焦虑列最高频"
+    },
+    {
+      "text": "识别出正品/版本辨别焦虑（国行vs德爱、真假货）",
+      "passed": true,
+      "evidence": "卡点2真假货/版本信任焦虑"
+    },
+    {
+      "text": "识别出价格纠结/智商税议题",
+      "passed": true,
+      "evidence": "卡点3价格/智商税质疑"
+    },
+    {
+      "text": "给出议题分布反映市场在讨论什么",
+      "passed": true,
+      "evidence": "评论聚类四大主题"
+    },
+    {
+      "text": "识别舆情风险：负面内容且评论盖过赞，标为需跟进",
+      "passed": true,
+      "evidence": "xhs_103 评论/赞0.76标为争议、舆情敏感点"
+    },
+    {
+      "text": "区分正面型vs争议型（用互动结构非只数条数）",
+      "passed": true,
+      "evidence": "用收藏/赞、评论/赞比值区分决策意图vs争议"
+    },
+    {
+      "text": "给出各平台差异化人格建议",
+      "passed": true,
+      "evidence": "平台画像+分平台建议"
+    },
+    {
+      "text": "以行动清单/明确该做什么收尾",
+      "passed": true,
+      "evidence": "5条营销/运营建议"
+    },
+    {
+      "text": "没有跨平台加总或比较绝对数",
+      "passed": false,
+      "evidence": "第二节把7条内容跨平台加总'点赞~9.4万，收藏~5.7万，评论~1.6万'，正是技能禁止的跨平台绝对数加总"
+    },
+    {
+      "text": "涉及奶粉安全谨慎不夸大、用词通俗",
+      "passed": true,
+      "evidence": "背景补课表+局限说明，用词通俗；未夸大"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 1,
+    "total": 10,
+    "pass_rate": 0.9
+  }
+}
