@@ -1,0 +1,110 @@
+{
+  "skill_name": "refine-english",
+  "evals": [
+    {
+      "id": 1,
+      "category": "basic_refinement",
+      "prompt": "Please refine this: i think we can finish this work on friday but if client change again maybe need more time",
+      "expected_output": "Natural English that preserves the user's meaning and improves grammar, flow, and clarity without adding commentary.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "category": "formal_tone",
+      "prompt": "//formal// we are sorry for delay because the system have some problem and we already fix it",
+      "expected_output": "A polished formal sentence that apologizes for the delay, explains the issue naturally, and preserves the meaning.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "category": "translation_chat_concise",
+      "prompt": "//chat, concise// 这个周末我可能没空，到时候再跟你说",
+      "expected_output": "A short natural English chat message translated from Chinese, preserving uncertainty and casual tone.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "category": "email_formal",
+      "prompt": "//email, formal// i want ask if there is any update about the proposal",
+      "expected_output": "A natural professional email-style sentence asking for an update on the proposal, without unnecessary expansion.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "category": "casual_human",
+      "prompt": "//casual// I apologize for not being able to attend the gathering due to personal scheduling constraints.",
+      "expected_output": "A more natural casual version in plain English, without sounding robotic or overly formal.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "category": "already_good_english",
+      "prompt": "I reviewed the document and added a few comments in the margins.",
+      "expected_output": "The output should remain identical or nearly identical, showing restraint and avoiding unnecessary edits.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "category": "mixed_language",
+      "prompt": "Can you 帮我看一下这个 paragraph 有没有 weird 的地方?",
+      "expected_output": "A coherent fully English sentence that preserves the mixed-language meaning in natural native-like phrasing.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "category": "soften_custom_command",
+      "prompt": "//keep the meaning the same, but make the tone softer// You need to fix this today.",
+      "expected_output": "A softer version of the sentence that keeps the meaning and urgency but sounds more polite.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "category": "chat_short_message",
+      "prompt": "//chat// reached home already, thanks for today",
+      "expected_output": "A realistic natural chat message in English, lightly corrected but not over-polished.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "category": "concise_reduction",
+      "prompt": "//concise// I just wanted to quickly follow up with you to see whether you might possibly have any updates for me regarding the timeline.",
+      "expected_output": "A shorter cleaner version that keeps the follow-up intent and question about the timeline.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "category": "fragmented_notes",
+      "prompt": "meeting tomorrow 3pm with design team discuss homepage issue and next step",
+      "expected_output": "Natural English reconstructed from note-like input, while staying concise and faithful to the source.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "category": "translate_formal",
+      "prompt": "//formal// 非常感谢你的耐心，我们会在明天下午之前给你最终答复。",
+      "expected_output": "A formal English sentence translated from Chinese, expressing thanks for patience and promising a final reply by tomorrow afternoon.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "category": "avoid_ai_tone",
+      "prompt": "//casual// Furthermore, I would like to express my appreciation for your assistance in this matter.",
+      "expected_output": "A more natural everyday English sentence that removes stiff AI-like phrasing while keeping the same meaning.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "category": "preserve_uncertainty",
+      "prompt": "maybe we can launch next week if everything goes well",
+      "expected_output": "Natural English that preserves the uncertainty and conditional tone rather than making the statement sound definite.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "category": "email_not_overexpanded",
+      "prompt": "//email// please send me the invoice when it is ready",
+      "expected_output": "A natural email-style sentence that stays brief and does not invent greeting or sign-off details.",
+      "files": []
+    }
+  ]
+}
